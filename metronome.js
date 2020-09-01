@@ -105,10 +105,6 @@ async function startMetronome(metronomeSettings) {
   metronomeSettings.isRunning ? startMetronome(metronomeSettings) : null;
 }
 
-function stopMetronome() {
-  settings.isRunning = false;
-}
-
 async function updateBeats() {
   // get current number of beats and calculate how many to add
   const existingBeats = metronomeBeats.children.length / 2;
