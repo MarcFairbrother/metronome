@@ -23,4 +23,4 @@ Several methods were tested:
 
 ## Recursion vs setInterval
 
-Recursion is used with a promise-based wait function instead of setInterval to enable updating the tempo without clearing and reinitialising the tempo
+Recursion is used with a promise-based wait function instead of setInterval to enable updating the tempo without clearing and reinitialising the interval.
