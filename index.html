@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metronome</title>
+    <link rel="stylesheet" href="./metronome.css" />
+    <link rel="icon" href="./favicon.ico" />
+  </head>
+  <body>
+    <main class="metronome">
+      <section class="metronome__container">
+        <p class="metronome__speedometer"></p>
+        <ul class="metronome__beats"></ul>
+      </section>
+      <form class="metronome__controls" action="javascript:void(0);">
+        <div>
+          <label for="beatsPerMinute">Tempo</label>
+          <input
+            name="beatsPerMinute"
+            id="beatsPerMinute"
+            type="range"
+            min="30"
+            max="120"
+            value="96"
+            step="1"
+          />
+        </div>
+        <div>
+          <label for="beatsPerMeasure">Beats</label>
+          <input
+            name="beatsPerMeasure"
+            id="beatsPerMeasure"
+            type="range"
+            min="2"
+            max="8"
+            value="4"
+            step="1"
+          />
+        </div>
+        <div class="metronome__controls__offbeat">
+          <input name="offbeat" id="offbeat" type="checkbox" checked />
+          <label for="offbeat">Play offbeat</label>
+        </div>
+        <button id="play" type="button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 2.6666667 2.6666667"
+          >
+            <path
+              d="M.33375409 7e-7C.21088678-.00022696.11115886.09930686.1111468.22217476v2.2217406c-.00017872.16958502.1820295.27685132.3302225.1944023l1.99956023-1.1108703c.15278728-.084571.15278728-.3042336 0-.3888046L.4413693.02777246C.40842935.00954839.37139923-.00000781.33375409 7e-7z"
+              fill="#fff"
+            />
+          </svg>
+          <span>Play</span>
+        </button>
+        <button id="pause" type="button" disabled>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1.4111111 1.4111111"
+          >
+            <path
+              d="M.17346493 7.8e-7a.04410126.04410159 0 00-.0439246.04392492v1.32291534a.04410126.04410159 0 00.0439246.04426942h.39678558a.04410126.04410159 0 00.0442691-.04426942V.0439257A.04410126.04410159 0 00.57025051 7.8e-7zm.66696494 0a.04410126.04410159 0 00-.0442691.04392492v1.32291534a.04410126.04410159 0 00.0442691.04426942h.3967857a.04410126.04410159 0 00.04435526-.04426942V.0439257A.04410126.04410159 0 001.23721557 7.8e-7z"
+              fill="#fff"
+            />
+          </svg>
+          <span>Pause</span>
+        </button>
+      </form>
+    </main>
+    <script src="./metronome.js"></script>
+  </body>
+</html>

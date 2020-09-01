@@ -1,0 +1,222 @@
+/* lato-700 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/lato/lato-v16-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Lato Bold'), local('Lato-Bold'),
+    url('./assets/fonts/lato/lato-v16-latin-700.eot?#iefix')
+      format('embedded-opentype'),
+    /* IE6-IE8 */ url('./assets/fonts/lato/lato-v16-latin-700.woff2')
+      format('woff2'),
+    /* Super Modern Browsers */
+      url('./assets/fonts/lato/lato-v16-latin-700.woff') format('woff'),
+    /* Modern Browsers */ url('./assets/fonts/lato/lato-v16-latin-700.ttf')
+      format('truetype'),
+    /* Safari, Android, iOS */
+      url('./assets/fonts/lato/lato-v16-latin-700.svg#Lato') format('svg'); /* Legacy iOS */
+}
+:root {
+  --opacity: 1;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  align-items: center;
+  background: linear-gradient(125deg, #b20a2c -20%, #fffbd5 150%);
+  color: white;
+  display: flex;
+  font-family: Lato, 'Lucida Grande', Tahoma, Sans-Serif;
+  justify-content: center;
+  min-height: 100vh;
+}
+.metronome__container {
+  display: grid;
+  height: 200px;
+  width: 200px;
+}
+.metronome__speedometer {
+  align-self: center;
+  font-size: 1.25rem;
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+}
+.metronome__beats {
+  display: grid;
+  font-size: 0;
+  grid-column: 1;
+  grid-row: 1;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  padding: 0;
+}
+.metronome__beats > li {
+  display: grid;
+  grid-column: 1;
+  grid-row: 1;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  transform: rotateZ(360deg);
+  transition: transform 0.2s ease-in-out;
+}
+.metronome__beat > span {
+  background: rgba(255, 255, 255, 1);
+  border: solid 2px rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  display: block;
+  grid-column: 1;
+  grid-row: 1;
+  height: 30px;
+  transition: all 0.15s ease-in-out;
+  width: 30px;
+}
+.metronome__offbeat > span {
+  background: rgba(255, 255, 255, 1);
+  border: solid 2px rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  display: block;
+  grid-column: 1;
+  grid-row: 1;
+  height: 14px;
+  margin-top: 8px;
+  opacity: var(--opacity);
+  transition: all 0.15s ease-in-out;
+  width: 14px;
+}
+.metronome__beat.active > span,
+.metronome__offbeat.active > span {
+  background: rgba(255, 255, 255, 0);
+  transform: scale(1.25);
+}
+.metronome__controls {
+  margin-top: 50px;
+  text-align: center;
+  width: 200px;
+}
+/* custom button */
+button {
+  align-items: center;
+  background: linear-gradient(125deg, #b20a2c -40%, #fffbd5 190%);
+  border: 1px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: inherit;
+  font-size: 0.8rem;
+  height: 80px;
+  justify-content: flex-end;
+  margin: 35px auto 0;
+  padding-bottom: 10px;
+  transition: transform 0.1s ease-in-out;
+  width: 80px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+button:active {
+  transform: scale(0.95);
+}
+button:focus {
+  outline: solid 1px white;
+}
+button > svg {
+  margin-bottom: 8px;
+  width: 35%;
+}
+button:disabled {
+  display: none;
+}
+/* custom range input */
+input[type='range'] {
+  background: none;
+  height: 40px;
+  margin: 10px 0;
+  outline: solid 1px rbga(255, 255, 255, 0);
+  padding: 5px;
+  transition: outline 0.1s;
+  width: 100%;
+  -webkit-appearance: none;
+}
+input[type='range']:focus {
+  outline: solid 1px white;
+  padding: 5px;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  border: solid 1px white;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 8px;
+  width: 100%;
+}
+input[type='range']::-webkit-slider-thumb {
+  background: linear-gradient(125deg, #b20a2c -20%, #fffbd5 150%);
+  border: solid 1px white;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  height: 20px;
+  margin-top: -8px;
+  width: 20px;
+  -webkit-appearance: none;
+}
+input[type='range']::-moz-range-track {
+  border: solid 1px white;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 5px;
+  width: 100%;
+}
+input[type='range']::-moz-range-thumb {
+  background: linear-gradient(125deg, #b20a2c -20%, #fffbd5 150%);
+  border: solid 1px white;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+/* custom checkbox input */
+.metronome__controls__offbeat input[type='checkbox'] {
+  margin-top: 15px;
+  opacity: 0;
+}
+.metronome__controls__offbeat label {
+  padding: 5px 5px 5px 32px;
+  position: relative;
+}
+.metronome__controls__offbeat label::before,
+.metronome__controls__offbeat label::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+}
+.metronome__controls__offbeat label::before {
+  border: 1px solid;
+  height: 16px;
+  left: 5px;
+  top: 6px;
+  width: 16px;
+}
+.metronome__controls__offbeat label::after {
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  height: 5px;
+  left: 9px;
+  top: 10px;
+  transform: rotate(-45deg);
+  width: 8.5px;
+}
+.metronome__controls__offbeat input[type='checkbox'] + label::after {
+  content: none;
+}
+.metronome__controls__offbeat input[type='checkbox']:checked + label::after {
+  content: '';
+}
+.metronome__controls__offbeat input[type='checkbox']:focus + label {
+  outline: white solid 1px;
+}
